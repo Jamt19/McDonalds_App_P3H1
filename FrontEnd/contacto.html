@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link rel="stylesheet" href="EstiloContacto.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="form" id="form" method="POST">
+        <h2>Escríbenos</h2>
+        <p>
+          Para McDonald’s los comentarios de nuestros consumidores son muy
+          valiosos y una manera de mejorar el servicio cada día. Puedes ponerte
+          en contacto con nosotros, a través de este medio:
+        </p>
+
+        <label for="name">Escribe tu nombre <span>*</span> </label>
+        <input type="text" id="name" class="box" required="true" />
+
+        <label for="email">Escribe tu correo <span>*</span> </label>
+        <input type="email" id="email" class="box" />
+
+        <label for="message">Escribe tu mensaje</label>
+        <textarea class="box" id="message" cols="30" rows="10" required="true"></textarea>
+
+        <p class="warnings" id="warnings"></p>
+        <input type="submit" value="enviar" class="submit" />
+      </form>
+      <a href="mailto:javiermatamoros22@gmail.com" id="trucazo"></a>
+
+      <div class="info">
+        <img src="imagenes/M-McDonalds.png" class="img-1" />
+        <div class="location">
+          <div class="icons">
+            <img src="imagenes/gps.svg" alt="" />
+            <p>Av.25 de Junio</p>
+          </div>
+
+          <div class="icons">
+            <img src="imagenes/number.svg" alt="" />
+            <p>78956321</p>
+          </div>
+
+          <div class="icons">
+            <img src="imagenes/email.svg" alt="" />
+            <p>mcDonalds@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="social">
+          <img src="imagenes/fa.svg" alt="" />
+          <img src="imagenes/tw.svg" alt="" />
+          <img src="imagenes/ins.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const $form = document.querySelector("#form");
+      const $buttonMailto = document.querySelector("#trucazo");
+
+      $form.addEventListener("submit", handleSubmit);
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        const form = new FormData(this);
+        //console.log(form.get('name'))
+        $buttonMailto.setAttribute(
+          "href",
+          `mailto:javiermatamoros22@gmail.com?subject$
+            {form.get('name')}${form.get("email")}&body=${form.get("message")}`
+        );
+        $buttonMailto.click();
+      }
+    </script>
+    <script src="Validaciones.js"></script>
+  </body>
+</html>

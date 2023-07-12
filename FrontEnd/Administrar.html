@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla con DataTables</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="EstiloAdministrar.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script src="VerUsuarios.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a id="botonInsertarNuevoUsuario" href="InsertarUsuario.html">Nuevo Usuario</a>
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+
+
+    <script>
+        $(document).ready(function() {
+            fetch('http://localhost:3000/users')
+                .then(response => response.json())
+                .then(data => {
+                    $('#usersTable').DataTable({
+                        data: data,
+                        columns: [
+                            { data: 'id' },
+                            { data: 'email' },
+                            { data: 'password' },
+                            {
+                                data: null,
+                                render: function(data, type, row) {
+                                    return `
+                                        
+                                        <button onclick="editUser(${data.id})">Editar</button>
+                                        <button onclick="deleteUser(${data.id})">Eliminar</button>
+                                    `;
+                                }
+                            }
+                        ]
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        function editUser(id) {
+            // Lógica para editar el usuario con el ID proporcionado
+            console.log('Editar usuario:', id);
+            window.location.href = `EditarUsuario.html?id=${id}`;
+        }
+
+    </script>
+</body>
+</html>
