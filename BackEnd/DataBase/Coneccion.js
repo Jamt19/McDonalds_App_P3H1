@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
- const sequelize = new Sequelize('DB_Practica_JS', 'postgres', 'Javier19', {
-  host: 'localhost',
+ const sequelize = new Sequelize('oqoierad', 'oqoierad', '6zNBOQ3f5VL31DFobkeT-fMhGs9BHtS1', {
+  host: 'stampy.db.elephantsql.com',
   dialect: 'postgres',
   logging:false,
   define:{
