@@ -1,5 +1,5 @@
 const xhr = new XMLHttpRequest();
-const url = 'http://localhost:3000/users';
+const url = 'https://mc-app.onrender.com/users';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('form');

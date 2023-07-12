@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000'; // Reemplaza con la URL de tu API
+const API_URL = 'https://mc-app.onrender.com'; // Reemplaza con la URL de tu API
 const urlParams = new URLSearchParams(window.location.search);
 const usuarioId = urlParams.get('id');
 

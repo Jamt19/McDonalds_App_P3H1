@@ -2,7 +2,7 @@
 
 // Función para borrar un usuario
 function deleteUser(id) {
-  fetch(`http://localhost:3000/users/${id}`, {
+  fetch(`https://mc-app.onrender.com/users/${id}`, {
     method: 'DELETE'
   })
     .then(response => {

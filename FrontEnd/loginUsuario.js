@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/login';
+const url = 'https://mc-app.onrender.com/login';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('form');
